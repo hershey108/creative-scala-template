@@ -98,3 +98,23 @@ object SierpinskiTriangle {
     sierpinski(5).draw
   }
 }
+
+object CleverBoxes {
+
+  def boxes(count: Int): Image = {
+    val aBox = Image.rectangle(100,100).fillColor(Color.royalBlue)
+
+    def loop(count: Int): Image = {
+      count match {
+        case 0 => Image.empty
+        case n => aBox beside boxes(n-1)
+      }
+    }
+
+    loop(count)
+  }
+
+  def main(args: Array[String]): Unit = {
+    boxes(6).draw
+  }
+}
