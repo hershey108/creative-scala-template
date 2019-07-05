@@ -107,7 +107,7 @@ object CleverBoxes {
     def loop(count: Int): Image = {
       count match {
         case 0 => Image.empty
-        case n => aBox beside boxes(n-1)
+        case n => aBox beside loop(n-1)
       }
     }
 
