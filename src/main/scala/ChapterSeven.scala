@@ -95,6 +95,6 @@ object SierpinskiTriangle {
   }
 
   def main(args: Array[String]): Unit = {
-    sierpinski(3).draw
+    sierpinski(5).draw
   }
 }
