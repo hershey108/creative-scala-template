@@ -99,26 +99,6 @@ object SierpinskiTriangle {
   }
 }
 
-object CleverBoxes {
-
-  def boxes(count: Int): Image = {
-    val aBox = Image.rectangle(100,100).fillColor(Color.royalBlue)
-
-    def loop(count: Int): Image = {
-      count match {
-        case 0 => Image.empty
-        case n => aBox beside loop(n-1)
-      }
-    }
-
-    loop(count)
-  }
-
-  def main(args: Array[String]): Unit = {
-    boxes(6).draw
-  }
-}
-
 object GradientBoxes {
 
   val aBox = Image.rectangle(200,200)
@@ -187,5 +167,25 @@ object FixedChessboard {
   def main(args: Array[String]): Unit = {
     chessboard(1).draw
     chessboard(2).draw
+  }
+}
+
+object CleverBoxes {
+
+  def boxes(count: Int): Image = {
+    val aBox = Image.rectangle(100,100).fillColor(Color.royalBlue)
+
+    def loop(count: Int): Image = {
+      count match {
+        case 0 => Image.empty
+        case n => aBox beside loop(n-1)
+      }
+    }
+
+    loop(count)
+  }
+
+  def main(args: Array[String]): Unit = {
+    boxes(6).draw
   }
 }
