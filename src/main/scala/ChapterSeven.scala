@@ -45,13 +45,16 @@ object Box {
 }
 
 object Cross {
-  val aCircle = Image.circle(10)
 
   def cross(count: Int): Image = {
-    count match {
-      case 0 => aCircle
-      case n => aCircle above (aCircle beside cross(n-1) beside aCircle) above aCircle
+    val aCircle = Image.circle(10)
+    def loop(count: Int) = {
+      count match {
+        case 0 => aCircle
+        case n => aCircle above (aCircle beside cross(n - 1) beside aCircle) above aCircle
+      }
     }
+    loop(count)
   }
 
   def main(args: Array[String]): Unit = {
